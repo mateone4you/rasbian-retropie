@@ -106,7 +106,6 @@ $ sudo apt-get install --no-install-recommends pcmanfm
 $ mkdir ~/screenshots
 $ mkdir ~/.bin && cd ~/.bin
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/find_app.sh
-$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/i3-logout.sh
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/lock.sh
 $ chmod +x *.sh
 $ mkdir ~/.src && mkdir ~/.src/dwm && cd ~/.src/dwm
