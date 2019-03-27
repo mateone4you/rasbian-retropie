@@ -62,7 +62,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 /* my edit */
-define FIND_APP_SH "/home/pi/.bin/find_app.sh"
+#define FIND_APP_SH "/home/pi/.bin/find_app.sh"
 static const char *mymenucmd[]  = { "jgmenu_run", NULL };
 static const char *browsercmd[]  = { FIND_APP_SH, "surf", NULL };
 static const char *file_manager[]  = { FIND_APP_SH, "pcmanfm", NULL };
