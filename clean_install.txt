@@ -104,6 +104,7 @@ $ sudo apt-get install --no-install-recommends scrot
 $ sudo apt-get install --no-install-recommends pcmanfm
 $ sudo apt-get install --no-install-recommends lxappearance
 $ sudo apt-get install --no-install-recommends leafpad
+$ sudo apt-get install --no-install-recommends sakura
 $ mkdir ~/.dwm
 $ nano ~/.dwm/autostart.sh
 xrdb &
