@@ -1,18 +1,18 @@
 # rasbian-retropie
 Install Rasbian Lite + RetroPie + TFT 5″ 800x480 XPT2046
 
-1.Download image from: https://downloads.raspberrypi.org/raspbian_lite_latest, ~300 mb.
+  1.Download image from: https://downloads.raspberrypi.org/raspbian_lite_latest, ~300 mb.
 
-2.Format sdcard: 
+  2.Format sdcard: 
 Windows - diskpart.exe
   list disk
   sel disk <our disk>
   clean
   exit
 
-3.Write image: with etcher https://www.balena.io/etcher/.
+  3.Write image: with etcher https://www.balena.io/etcher/.
 
-4.Edit file on sdcard /boot/config.txt, only for TFT 5″ 800x480 XPT2046.
+  4.Edit file on sdcard /boot/config.txt, only for TFT 5″ 800x480 XPT2046.
 Add end of file:
 ###
 max_usb_current=1
@@ -26,7 +26,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=50000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
 ###
 
-5.Basic settings I:
+  5.Basic settings I:
 Boot raspberry with sdcard.
 
 Enter login:password: (pi:raspberry)
@@ -47,7 +47,7 @@ $ sudo reboot
 
                 Further actions are recommended through PuTTY (copy / paste).
 
-5.Basic settings II:
+  6.Basic settings II:
 
 Русификация Raspbian:
 
@@ -76,9 +76,10 @@ XKBOPTIONS="grp:alt_shift_toggle,compose:rwin,terminate:ctrl_alt_bksp,grp_led:sc
 BACKSPACE="guess"
 ###
 
-5.Basic settings III:
+  7.Basic settings III:
 
 Update system:
+
 $ sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
 $ sudo rpi-update
 $ sudo reboot
