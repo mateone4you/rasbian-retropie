@@ -101,17 +101,15 @@ $ sudo nano /etc/apt/sources.list
 deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
 $ sudo  apt-get update
 $ sudo apt-get build-dep dwm
-$ mkdir ~/.src
-$ cd ~/.src
-$ mkdir ./dwm
-$ cd ./dwm
-$ git clone git://git.suckless.org/dwm
+$ mkdir ~/.src && cd ~/.src && mkdir ./dwm && cd ./dwm
+$ wget https://github.com/mateone4you/archpi/raw/master/root/home/pi/.src/build/dwm/dwm-6.1.tar.bz2
+$ tar -xf dwm-6.1.tar.bz2
 $ mkdir ./patches
 $ cd ./patches
-$ wget https://dwm.suckless.org/patches/systray/dwm-systray-20190208-cb3f58a.diff
-$ wget https://dwm.suckless.org/patches/autostart/dwm-autostart-20161205-bb3bd6f.diff
-$ cd ../dwm
-$ patch -p1 < ../patches/dwm-systray-20190208-cb3f58a.diff
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/dwm/patches/dwm-6.1-systray.diff
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/dwm/patches/dwm-autostart-20161205-bb3bd6f.diff
+$ cd ../dwm-6.1
+$ patch -p1 < ../patches/dwm-6.1-systray.diff
 $ patch -p1 < ../patches/dwm-autostart-20161205-bb3bd6f.diff
 $ make
 $ sudo make install
