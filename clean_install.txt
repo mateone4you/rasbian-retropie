@@ -107,6 +107,7 @@ $ nano ~/.dwm/autostart.sh
 xrdb &
 nitrogen --restore &
 setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp_led:scroll" &
+$ mkdir ~/Pictures && cd ~/Pictures && wget
 $ mkdir ~/screenshots
 $ mkdir ~/.bin && cd ~/.bin
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/find_app.sh
