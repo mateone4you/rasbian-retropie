@@ -102,12 +102,15 @@ $ sudo apt-get build-dep dwm
 $ sudo apt-get install rofi fonts-roboto x11-xserver-utils imagemagick nitrogen
 $ sudo apt-get install --no-install-recommends scrot 
 $ sudo apt-get install --no-install-recommends pcmanfm
+$ sudo apt-get install --no-install-recommends lxappearance
+$ sudo apt-get install --no-install-recommends leafpad
 $ mkdir ~/.dwm
 $ nano ~/.dwm/autostart.sh
 xrdb &
 nitrogen --restore &
-setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp_led:scroll" &
-$ mkdir ~/Pictures && cd ~/Pictures && wget
+$ chmod +x ~/.dwm/autostart.sh
+$ mkdir ~/Pictures && cd ~/Pictures && wget https://github.com/mateone4you/rasbian-retropie/raw/master/dark_woods.jpg
+$ nitrogen ~/Pictures
 $ mkdir ~/screenshots
 $ mkdir ~/.bin && cd ~/.bin
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/find_app.sh
@@ -131,3 +134,21 @@ $ wget https://raw.githubusercontent.com/mateone4you/rasbian-retropie/master/con
 $ cp config.dwm.h config.h
 $ make
 $ sudo make install
+
+″st″
+$ cd ~/.src/ && mkdir ~/.src/st && cd ~/.src/st
+$ wget https://github.com/mateone4you/archpi/raw/master/root/home/pi/.src/build/st/st-0.8.2.tar.bz2
+$ tar -xf st-0.8.2.tar.bz2
+$ mkdir  ~/.src/st/patches && cd ~/.src/st/patches
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/st/patches/st-alpha-0.8.2.diff
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/st/patches/st-clipboard-0.8.2.diff
+& wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/st/patches/st-anysize-0.8.1.diff
+$ cd ~/.src/st/st
+$ patch -p1 < ../patches/st-alpha-0.8.2.diff
+$ patch -p1 < ../patches/st-anysize-0.8.1.diff
+$ patch -p1 < ../patches/st-clipboard-0.8.2.diff
+$ cp  config.def.h  config.h
+$ nano config.h
+static char *font = "Roboto Light:pixelsize=10:antialias=true:autohint=true";
+static int borderpx = 1;
+$ 
