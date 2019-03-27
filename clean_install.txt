@@ -89,8 +89,7 @@ $ sudo reboot
 $ sudo apt-get install git mc
 $ sudo apt-get install --no-install-recommends xserver-xorg
 $ sudo apt-get install --no-install-recommends xinit
-$ sudo apt-get install xterm xfonts-cyrillic x11-xserver-utils
-
+$ sudo apt-get install xterm xfonts-cyrillic
   ″i3″
 $ sudo apt-get install --no-install-recommends i3 i3lock suckless-tools i3status dunst xfonts-base
 
@@ -100,9 +99,14 @@ $ sudo nano /etc/apt/sources.list
 deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
 $ sudo  apt-get update
 $ sudo apt-get build-dep dwm
-$ sudo apt-get install rofi fonts-roboto
-$ sudo apt-get install --no-install-recommends scrot imagemagick
+$ sudo apt-get install rofi fonts-roboto x11-xserver-utils imagemagick nitrogen
+$ sudo apt-get install --no-install-recommends scrot 
 $ sudo apt-get install --no-install-recommends pcmanfm
+$ mkdir ~/.dwm
+$ nano ~/.dwm/autostart.sh
+xrdb &
+nitrogen --restore &
+setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp_led:scroll" &
 $ mkdir ~/screenshots
 $ mkdir ~/.bin && cd ~/.bin
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/find_app.sh
