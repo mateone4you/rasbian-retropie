@@ -31,10 +31,11 @@ static const Rule rules[] = {
         /* class      instance    title       tags mask     isfloating   monitor */
         { "Gimp",     NULL,       NULL,       0,            1,           -1 },
         { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+       	{ "Surf",     NULL,	  NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -46,7 +47,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
         { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
         { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -60,6 +61,18 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
+/* my edit */
+define FIND_APP_SH "/home/pi/.bin/find_app.sh"
+static const char *mymenucmd[]  = { "jgmenu_run", NULL };
+static const char *browsercmd[]  = { FIND_APP_SH, "surf", NULL };
+static const char *file_manager[]  = { FIND_APP_SH, "pcmanfm", NULL };
+static const char *scrotcmd[]  = { "scrot", "/home/pi/screenshots/%Y-%m-%d-%T-screenshot.png", NULL };
+static const char *jgmenu[]  = { FIND_APP_SH, "jgmenu_run", NULL };
+static const char *lock[]  = { "/home/pi/.bin/lock.sh", NULL };
+static const char *poweroff[]  = { "i3-logout.sh", NULL };
+static const char *volupcmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%+", "unmute", NULL };
+static const char *voldowncmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%-", "unmute", NULL };
+static const char *volmutecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
 
 static Key keys[] = {
         /* modifier                     key        function        argument */
@@ -96,6 +109,16 @@ static Key keys[] = {
         TAGKEYS(                        XK_8,                      7)
         TAGKEYS(                        XK_9,                      8)
         { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+        /* my edit */
+        { MODKEY,                       0xff61,      spawn,          {.v = scrotcmd } },
+	{ MODKEY|ShiftMask,             XK_b,        spawn,          {.v = browsercmd } },
+	{ MODKEY|ShiftMask,             XK_f,        spawn,          {.v = file_manager } },
+	{ MODKEY|ShiftMask,             XK_m,        spawn,          {.v = jgmenu } },
+	{ MODKEY|ShiftMask,             XK_l,        spawn,          {.v = lock } },
+	{ MODKEY|ShiftMask,             XK_p,        spawn,          {.v = poweroff } },
+	{ MODKEY,                       0x1008ff13,  spawn,          {.v = volupcmd } },
+	{ MODKEY,                       0x1008ff11,  spawn,          {.v = voldowncmd } },
+	{ MODKEY,                       0x1008ff12,  spawn,          {.v = volmutecmd } },
 };
 
 /* button definitions */
@@ -113,5 +136,7 @@ static Button buttons[] = {
         { ClkTagBar,            0,              Button3,        toggleview,     {0} },
         { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
         { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+        /* my edit */
+        { ClkStatusText,        0,              Button1,        spawn,          {.v = mymenucmd } },
 };
 
