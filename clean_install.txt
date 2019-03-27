@@ -101,6 +101,9 @@ deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free 
 $ sudo  apt-get update
 $ sudo apt-get build-dep dwm
 $ sudo apt-get install rofi fonts-roboto
+$ sudo apt-get install --no-install-recommends scrot imagemagick
+$ sudo apt-get install --no-install-recommends pcmanfm
+$ mkdir ~/screenshots
 $ mkdir ~/.bin && cd ~/.bin
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/find_app.sh
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/i3-logout.sh
