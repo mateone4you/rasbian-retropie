@@ -84,8 +84,35 @@ $ sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
 $ sudo rpi-update
 $ sudo reboot
 
+  8.Install desktop.
+  
 $ sudo apt-get install git mc
 $ sudo apt-get install --no-install-recommends xserver-xorg
 $ sudo apt-get install --no-install-recommends xinit
 $ sudo apt-get install xterm xfonts-cyrillic
+
+  ″i3″
+$ sudo apt-get install --no-install-recommends i3 i3lock suckless-tools i3status dunst xfonts-base
+
+  ″dwm″
+  
+$ sudo nano /etc/apt/sources.list
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
+$ sudo  apt-get update
+$ sudo apt-get build-dep dwm
+$ mkdir ~/.src
+$ cd ~/.src
+$ mkdir ./dwm
+$ cd ./dwm
+$ git clone git://git.suckless.org/dwm
+$ mkdir ./patches
+$ cd ./patches
+$ wget https://dwm.suckless.org/patches/systray/dwm-systray-20190208-cb3f58a.diff
+$ wget https://dwm.suckless.org/patches/autostart/dwm-autostart-20161205-bb3bd6f.diff
+$ cd ../dwm
+$ patch -p1 < ../patches/dwm-systray-20190208-cb3f58a.diff
+$ patch -p1 < ../patches/dwm-autostart-20161205-bb3bd6f.diff
+$ make
+$ sudo make install
 
