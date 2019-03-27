@@ -106,11 +106,15 @@ $ wget https://github.com/mateone4you/archpi/raw/master/root/home/pi/.src/build/
 $ tar -xf dwm-6.1.tar.bz2
 $ mkdir ./patches
 $ cd ./patches
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/dwm/patches/dwm-fancybar-6.1.diff
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/dwm/patches/dwm-6.1-systray.diff
 $ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/dwm/patches/dwm-autostart-20161205-bb3bd6f.diff
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.src/build/dwm/patches/dwm-activetagindicatorbar-6.1.diff
 $ cd ../dwm-6.1
+$ patch -p1 < ../patches/dwm-fancybar-6.1.diff
 $ patch -p1 < ../patches/dwm-6.1-systray.diff
 $ patch -p1 < ../patches/dwm-autostart-20161205-bb3bd6f.diff
+$ patch -p1 < ../patches/dwm-activetagindicatorbar-6.1.diff
 $ make
 $ sudo make install
 
