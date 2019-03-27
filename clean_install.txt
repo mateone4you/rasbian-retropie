@@ -89,7 +89,7 @@ $ sudo reboot
 $ sudo apt-get install git mc
 $ sudo apt-get install --no-install-recommends xserver-xorg
 $ sudo apt-get install --no-install-recommends xinit
-$ sudo apt-get install xterm xfonts-cyrillic
+$ sudo apt-get install xterm xfonts-cyrillic x11-xserver-utils
 
   ″i3″
 $ sudo apt-get install --no-install-recommends i3 i3lock suckless-tools i3status dunst xfonts-base
