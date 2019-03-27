@@ -4,7 +4,7 @@
 static const char *fonts[] = {
         "monospace:size=10"
 };
-static const char dmenufont[]       = "Roboto Mono Medium:size=10";
+static const char dmenufont[]       = "Roboto Light:size=10";
 static const char normbordercolor[] = "#383C4A";
 static const char normbgcolor[]     = "#383C4A";
 static const char normfgcolor[]     = "#bbbbbb";
