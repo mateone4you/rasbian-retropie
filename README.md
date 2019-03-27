@@ -26,7 +26,7 @@ hdmi_cvt 800 480 60 6 0 0 0
 dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=50000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
 ###
 
-5.Basic settings:
+5.Basic settings I:
 Boot raspberry with sdcard.
 
 Enter login:password: (pi:raspberry)
@@ -36,13 +36,55 @@ $ passwd
 
 Enable Wi-Fi
 $ sudo raspi-config
-Network Option -> Wi-Fi -> Select country -> Enter SSID -> Enter passphase
+Network Option → Wi-Fi → Select country → Enter SSID → Enter passphase.
 check ping:
 $ ping 8.8.8.8
 $ ip a
 
 Enable SSH:
 $ sudo touch /boot/ssh
+$ sudo reboot
 
+                Further actions are recommended through PuTTY (copy / paste).
 
+5.Basic settings II:
+
+Русификация Raspbian:
+
+$ sudo raspi-config
+→ 4 Localisation Options Set up language and regional settings to match your location
+→ I1 Change Locale        Set up language and regional settings to match your location
+→ [*] ru_RU.UTF-8 UTF-8 
+→ ru_RU.UTF-8
+→ 4 Localisation Options Set up language and regional settings to match your location
+→ I2 Change Timezone
+→ Asia
+→ Yekaterinburg
+
+$ sudo dpkg-reconfigure console-setup
+→ UTF-8
+→ Guess optimal character set
+→ Terminus
+→ 8x16
+
+sudo nano /etc/default/keyboard
+###
+XKBMODEL="pc105"
+XKBLAYOUT="us,ru"
+XKBVARIANT=","
+XKBOPTIONS="grp:alt_shift_toggle,compose:rwin,terminate:ctrl_alt_bksp,grp_led:scroll"
+BACKSPACE="guess"
+###
+
+5.Basic settings III:
+
+Update system:
+$ sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
+$ sudo rpi-update
+$ sudo reboot
+
+$ sudo apt-get install git mc
+$ sudo apt-get install --no-install-recommends xserver-xorg
+$ sudo apt-get install --no-install-recommends xinit
+$ sudo apt-get install xterm xfonts-cyrillic
 
