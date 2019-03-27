@@ -114,5 +114,7 @@ $ patch -p1 < ../patches/dwm-fancybar-6.1.diff
 $ patch -p1 < ../patches/dwm-6.1-systray.diff
 $ patch -p1 < ../patches/dwm-autostart-20161205-bb3bd6f.diff
 $ patch -p1 < ../patches/dwm-activetagindicatorbar-6.1.diff
+$ wget https://raw.githubusercontent.com/mateone4you/rasbian-retropie/master/config.dwm.h
+$ cp config.dwm.h config.h
 $ make
 $ sudo make install
