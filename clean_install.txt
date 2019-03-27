@@ -165,37 +165,9 @@ $ sudo dpkg -i ../jgmenu_*.deb
 
 $ mkdir ~/.config/jgmenu
 $ nano /.config/jgmenu/jgmenurc
-enu_margin_x     = 0
-menu_margin_y     = 21
-menu_width        = 200
-menu_radius       = 4
-menu_border       = 1
-csv_cmd           = lx
-
-#
-# valid options for menu alignment are:
-#   - horizontal: left, right
-#   - vertical:   top, bottom
-#
 menu_halign       = right
 menu_valign       = top
-
-item_margin_x     = 3
-item_margin_y     = 3
-item_height       = 25
-item_padding_x    = 4
-item_radius       = 4
-item_border       = 0
-
-max_items         = 80
-min_items         = 0
-font              = Roboto Mono Light 10
-icon_size         = 18
-icon_theme        = Arc
-ignore_xsettings  = 1
-ignore_icon_cache = 1
-show_title        = 0
-
+font              = Roboto Light 10
 color_menu_bg     = #383C4A 100
 color_menu_fg     = #383C4A 100
 color_norm_bg     = #383C4A 100
