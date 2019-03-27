@@ -95,7 +95,6 @@ $ sudo apt-get install xterm xfonts-cyrillic
 $ sudo apt-get install --no-install-recommends i3 i3lock suckless-tools i3status dunst xfonts-base
 
   ″dwm″
-  
 $ sudo nano /etc/apt/sources.list
 # Uncomment line below then 'apt-get update' to enable 'apt-get source'
 deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
