@@ -100,7 +100,13 @@ $ sudo nano /etc/apt/sources.list
 deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
 $ sudo  apt-get update
 $ sudo apt-get build-dep dwm
-$ mkdir ~/.src && cd ~/.src && mkdir ./dwm && cd ./dwm
+$ sudo apt-get install rofi fonts-roboto
+$ mkdir ~/.bin && cd ~/.bin
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/find_app.sh
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/i3-logout.sh
+$ wget https://raw.githubusercontent.com/mateone4you/archpi/master/root/home/pi/.bin/lock.sh
+$ chmod +x *.sh
+$ mkdir ~/.src && mkdir ~/.src/dwm && cd ~/.src/dwm
 $ wget https://github.com/mateone4you/archpi/raw/master/root/home/pi/.src/build/dwm/dwm-6.1.tar.bz2
 $ tar -xf dwm-6.1.tar.bz2
 $ mkdir ./patches
