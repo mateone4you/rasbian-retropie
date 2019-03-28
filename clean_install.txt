@@ -90,6 +90,7 @@ $ sudo apt-get install git mc
 $ sudo apt-get install --no-install-recommends xserver-xorg
 $ sudo apt-get install --no-install-recommends xinit
 $ sudo apt-get install xterm xfonts-cyrillic
+
   ″i3″
 $ sudo apt-get install --no-install-recommends i3 i3lock suckless-tools i3status dunst xfonts-base
 
@@ -109,6 +110,13 @@ $ mkdir ~/.dwm
 $ nano ~/.dwm/autostart.sh
 xrdb &
 nitrogen --restore &
+luastatus -b dwm -B separator=' • ' ~/.config/luastatus/fs.lua \
+				    ~/.config/luastatus/cpu-usage.lua \
+				    ~/.config/luastatus/mem-usage.lua \
+				    ~/.config/luastatus/cpu-temperature.lua \
+				    ~/.config/luastatus/wireless.lua \
+				    ~/.config/luastatus/xkb.lua \
+				    ~/.config/luastatus/time-date.lua &
 $ chmod +x ~/.dwm/autostart.sh
 $ mkdir ~/Pictures && cd ~/Pictures && wget https://github.com/mateone4you/rasbian-retropie/raw/master/dark_woods.jpg
 $ nitrogen ~/Pictures
@@ -150,7 +158,6 @@ $ patch -p1 < ../patches/st-anysize-0.8.1.diff
 $ patch -p1 < ../patches/st-clipboard-0.8.2.diff
 $ cp  config.def.h  config.h
 $ nano config.h
-static char *font = "Roboto Light:pixelsize=10:antialias=true:autohint=true";
 static int borderpx = 1;
 $ make
 $ sudo make install
@@ -178,3 +185,24 @@ color_sel_bg      = #5294E2 100
 color_sel_fg      = #ffffff 100
 color_noprog_fg   = #5294E2 100
 color_title_bg    = #ffffff 100
+
+  ″luastatus″
+$ sudo apt-get install lua5.1 libluajit-5.1-dev libx11-dev libasound2-dev libyajl-dev yajl-tools libnl-genl-3-dev libudev-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-util0 libxcb-util0-dev python-docutils cmake
+$ cd ~/.src
+$ git clone https://github.com/shdown/luastatus.git
+$ cd ./luastatus
+$ cmake . && make && sudo make install
+$ mkdir ~/.config/luastatus
+$ cp ./examples/dwm/fs.lua ~/.config/luastatus
+$ cp ./examples/dwm/cpu-usage.lua ~/.config/luastatus
+$ cp ./examples/dwm/mem-usage.lua ~/.config/luastatus
+$ cp ./examples/dwm/cpu-temperature.lua ~/.config/luastatus
+$ cp ./examples/dwm/wireless.lua ~/.config/luastatus
+$ cp ./examples/dwm/xkb.lua ~/.config/luastatus
+$ cp ./examples/dwm/time-date.lua ~/.config/luastatus
+$ nano ~/.config/luastatus/fs.lua
+paths = {'/'},
+$ nano ~/.config/luastatus/time-date.lua
+del the string
+string.format('%d:%02d', d.hour, d.min),
+$ 
