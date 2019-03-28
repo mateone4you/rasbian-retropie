@@ -1,5 +1,5 @@
 # rasbian-retropie
-Install Rasbian Lite + RetroPie + TFT 5″ 800x480 XPT2046
+Install Rasbian Lite + RetroPie + TFT 5″ 800x480 XPT2046 (dwm desktop)
 
   1.Download image from: https://downloads.raspberrypi.org/raspbian_lite_latest, ~300 mb.
 
@@ -187,7 +187,7 @@ color_noprog_fg   = #5294E2 100
 color_title_bg    = #ffffff 100
 
   ″luastatus″
-$ sudo apt-get install lua5.1 libluajit-5.1-dev libx11-dev libasound2-dev libyajl-dev yajl-tools libnl-genl-3-dev libudev-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-util0 libxcb-util0-dev python-docutils cmake
+$ sudo apt-get install lua5.1 libluajit-5.1-dev libx11-dev libasound2-dev alsa-base libyajl-dev yajl-tools libnl-genl-3-dev libudev-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-util0 libxcb-util0-dev python-docutils cmake
 $ cd ~/.src
 $ git clone https://github.com/shdown/luastatus.git
 $ cd ./luastatus
@@ -206,3 +206,57 @@ $ nano ~/.config/luastatus/time-date.lua
 del the string
 string.format('%d:%02d', d.hour, d.min),
 $ 
+  ″TFT 5″ 800x480 XPT2046″
+$ sudo apt-get install xserver-xorg-video-fbturbo
+$ cd ~/.src
+wget https://github.com/mateone4you/rasbian-retropie/raw/master/xpt2046-LCD-Driver.tar.bz2
+$ tar -xf xpt2046-LCD-Driver.tar.bz2
+$ cd ./xpt2046-LCD-Driver
+$ sudo sh ./LCD5-show
+$ touch ~/.xinitrc
+$ echo "exec dwm" > ~/.xinitrc
+check run: startx
+
+  ″next step″
+$ sudo apt-get install lightdm
+$ sudo touch /usr/share/xsessions/dwm.desktop
+
+$ sudo nano /usr/share/xsessions/dwm.desktop
+[Desktop Entry]
+Name=dwm
+Comment=improved dynamic tiling window manager
+Exec=dwm
+TryExec=dwm
+Type=Application
+X-LightDM-DesktopName=dwm
+DesktopNames=dwm
+Keywords=tiling;wm;windowmanager;window;manager;
+
+$ sudo apt-get install rpi-chromium-mods # ~ add 500 mb !!!
+$ sudo apt-get install matchbox-keyboard
+$ nano ~/.bin/toggle-matchbox-keyboard.sh
+
+#!/bin/bash
+#This script toggle the virtual keyboard
+
+PID=`pidof matchbox-keyboard`
+if [ ! -e $PID ]; then
+  killall matchbox-keyboard
+else
+ matchbox-keyboard&
+fi
+
+$ chmod +x ~/.bin/toggle-matchbox-keyboard.sh
+$ sudo nano /usr/share/applications/toggle-matchbox-keyboard.desktop
+
+[Desktop Entry]
+Name=Toggle Matchbox Keyboard
+Comment=Toggle Matchbox Keyboard
+Exec=/home/pi/.bin/toggle-matchbox-keyboard.sh
+Type=Application
+Icon=matchbox-keyboard.png
+Categories=Panel;Utility;MB
+X-MB-INPUT-MECHANSIM=True
+
+$ sudo mv /usr/share/applications/inputmethods/matchbox-keyboard.desktop /root
+
