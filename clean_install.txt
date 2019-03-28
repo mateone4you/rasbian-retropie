@@ -165,6 +165,8 @@ $ sudo dpkg -i ../jgmenu_*.deb
 
 $ mkdir ~/.config/jgmenu
 $ nano /.config/jgmenu/jgmenurc
+enu_margin_x     = 0
+menu_margin_y     = 18
 menu_halign       = right
 menu_valign       = top
 font              = Roboto Light 10
