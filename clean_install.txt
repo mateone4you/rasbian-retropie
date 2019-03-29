@@ -233,6 +233,12 @@ DesktopNames=dwm
 Keywords=tiling;wm;windowmanager;window;manager;
 
 $ sudo apt-get install rpi-chromium-mods # ~ add 500 mb !!!
+$ sudo nano /etc/lightdm/lightdm.conf
+allow-guest=false
+user-session=LXDE
+greeter-session=lightdm-gtk-greeter
+
+
 $ sudo apt-get install matchbox-keyboard
 $ nano ~/.bin/toggle-matchbox-keyboard.sh
 
