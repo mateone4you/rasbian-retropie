@@ -91,9 +91,6 @@ $ sudo apt-get install --no-install-recommends xserver-xorg
 $ sudo apt-get install --no-install-recommends xinit
 $ sudo apt-get install xterm xfonts-cyrillic
 
-  ″i3″
-$ sudo apt-get install --no-install-recommends i3 i3lock suckless-tools i3status dunst xfonts-base
-
   ″dwm″
 $ sudo nano /etc/apt/sources.list
 # Uncomment line below then 'apt-get update' to enable 'apt-get source'
@@ -232,13 +229,6 @@ X-LightDM-DesktopName=dwm
 DesktopNames=dwm
 Keywords=tiling;wm;windowmanager;window;manager;
 
-$ sudo apt-get install rpi-chromium-mods # ~ add 500 mb !!!
-$ sudo nano /etc/lightdm/lightdm.conf
-allow-guest=false
-user-session=LXDE
-greeter-session=lightdm-gtk-greeter
-
-
 $ sudo apt-get install matchbox-keyboard
 $ nano ~/.bin/toggle-matchbox-keyboard.sh
 
@@ -266,3 +256,5 @@ X-MB-INPUT-MECHANSIM=True
 
 $ sudo mv /usr/share/applications/inputmethods/matchbox-keyboard.desktop /root
 
+	″How to install a minimal Mate desktop″
+sudo apt install mate-desktop --no-install-recommends mate-desktop-environment-core mate-themes mate-session-manager mate-applets pluma software-properties-gtk
