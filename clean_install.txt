@@ -1,5 +1,5 @@
 # rasbian-retropie
-Install Rasbian Lite + RetroPie + TFT 5″ 800x480 XPT2046 (dwm desktop)
+Install Rasbian Lite + RetroPie + TFT 5″ 800x480 XPT2046 (dwm + mate desktop)
 
   1.Download image from: https://downloads.raspberrypi.org/raspbian_lite_latest, ~300 mb.
 
@@ -256,5 +256,24 @@ X-MB-INPUT-MECHANSIM=True
 
 $ sudo mv /usr/share/applications/inputmethods/matchbox-keyboard.desktop /root
 
+	″Advanced - Remote Desktop Protocol (RDP)″
+sudo apt-get install xrdp
+
 	″How to install a minimal Mate desktop″
-sudo apt install mate-desktop --no-install-recommends mate-desktop-environment-core mate-themes mate-session-manager mate-applets pluma software-properties-gtk
+Remove /etc/sudoers.d/010_pi-nopasswd:
+$ sudo cp /etc/sudoers.d/010_pi-nopasswd /etc/sudoers.d/010_pi-nopasswd~
+$ sudo rm /etc/sudoers.d/010_pi-nopasswd
+
+$ sudo apt install mate-desktop --no-install-recommends mate-desktop-environment-core mate-themes mate-session-manager mate-applets mate-core pluma
+$ sudo apt-get remove xserver-xorg-video-amdgpu xserver-xorg-video-ati xserver-xorg-video-nouveau xserver-xorg-video-radeon xserver-xorg-video-all
+$ sudo apt install eom gufw gksu mozo mate-tweak engrampa galculator gucharmap mate-utils mate-power-manager mate-system-monitor
+$ sudo apt install arj jlha-utils lzip lzop ncompress rpm2cpio rzip sharutils unace unalz unrar-free p7zip indicator-application indicator-messages metacity xcompmgr
+$ sudo apt install glances iftop traceroute finger nmap
+
+Administrator Authentication
+sudo nano /etc/polkit-1/localauthority.conf.d/60-desktop-policy.conf
+[Configuration]
+AdminIdentities=unix-group:sudo
+
+
+
